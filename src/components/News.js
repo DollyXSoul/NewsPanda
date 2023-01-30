@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import NewsItem from './NewsItem'
+import NewsItem from './NewsItem';
 import Spinner from './Spinner';
-import PropTypes from 'prop-types'
 
 
 export default class News extends Component {
@@ -37,7 +37,7 @@ export default class News extends Component {
     async updateNews() {
         this.setState({ loading: true })
         this.props.setProgress(10);
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9d49f32bea494e248ba864e1bab3a918&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         this.props.setProgress(30);
         let parsedData = await data.json();
@@ -57,7 +57,7 @@ export default class News extends Component {
     };
 
     fetchMoreData = async () => {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9d49f32bea494e248ba864e1bab3a918&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         this.setState({ page: this.state.page + 1 });
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -72,8 +72,8 @@ export default class News extends Component {
 
     render() {
         return (
-            <>
-                <h1 className="text-center" style={{ marginTop: '4rem' }}>NewsPanda - Top {this.capitalizeFirstLetter(this.props.category)} Headlines  </h1>
+            <div style={{ marginTop: '1rem', paddingTop: '0.5rem' }}>
+                <h1 className="text-center" >NewsPanda - Top {this.capitalizeFirstLetter(this.props.category)} Headlines </h1>
                 {this.state.loading && <Spinner />}
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
@@ -82,17 +82,18 @@ export default class News extends Component {
                     loader={<Spinner />} style={{ overflow: 'hidden' }} >
 
                     <div className="container" >
-                        <div className="row "  >
+                        <div className="row"  >
                             {!this.state.loading && this.state.articles.map((element) => {
-                                return <div className="col-md-4 " >
+                                return <div className="col-sm-6 col-md-4 " >
                                     <NewsItem title={element.title} description={element.description}
-                                        imageURL={element.urlToImage} newsURL={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                                        imageURL={element.urlToImage} newsURL={element.url} author={element.author}
+                                        date={element.publishedAt} source={element.source.name} />
                                 </div>
                             })}
                         </div>
                     </div>
                 </InfiniteScroll>
-            </>
+            </div>
         )
     }
-}
+};

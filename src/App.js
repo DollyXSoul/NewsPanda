@@ -1,11 +1,11 @@
-// import logo from './logo.svg';
 import React, { Component } from 'react'
-
 import LoadingBar from 'react-top-loading-bar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import './index.css'
 import Navbar from './components/Navbar';
 import News from './components/News';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import './App.css';
+import Searchbar from './components/Searchbar';
+import SearchFeed from './components/SearchFeed';
 
 
 export default class App extends Component {
@@ -19,9 +19,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <Router>
           <Navbar />
+          <Searchbar />
           <LoadingBar
             height={3}
             color='#adb5bd'
@@ -37,7 +38,9 @@ export default class App extends Component {
             <Route exact path="/sports" element={<News key="sports" setProgress={this.setLoad} pageSize={15} country="in" category="sports" />} />
             <Route exact path="/health" element={<News key="health" setProgress={this.setLoad} pageSize={15} country="in" category="health" />} />
             <Route exact path="/entertainment" element={<News key="entertainment" setProgress={this.setLoad} pageSize={15} country="in" category="entertainment" />} />
+            <Route path="/search/:searchTerm" element={<SearchFeed setProgress={this.setLoad} pageSize={50} />} />
           </Routes>
+
         </Router>
       </div>
     )
