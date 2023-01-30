@@ -73,16 +73,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Screencaps of the webapp 
 
 
-![Screenshot (59)](https://user-images.githubusercontent.com/77195565/204822277-e6b8b86e-ed68-4544-a54b-a689b21d72cd.png)
+![Screenshot (62)](https://user-images.githubusercontent.com/77195565/215499757-acaf7686-fb24-41b6-897e-5175a8690f30.png)
 
-![Screenshot (60)](https://user-images.githubusercontent.com/77195565/204822517-ef4c2bf6-4552-4667-8916-48b38500c8c4.png)
+
+![Screenshot (63)](https://user-images.githubusercontent.com/77195565/215499801-2a94cd7f-ff30-486c-b191-9782eaa707f1.png)
+
+
+![Screenshot (64)](https://user-images.githubusercontent.com/77195565/215499825-fd6e9311-d6cf-4caf-b3e0-c56a526d0d4f.png)
+
 
 Responsive
 
 Mobileview
 
-![localhost_3000_sports(Samsung Galaxy S20 Ultra)](https://user-images.githubusercontent.com/77195565/204822799-55e9f634-1eb9-45c6-8e66-ae490748f724.png)
+
+![Screenshot (66)](https://user-images.githubusercontent.com/77195565/215499905-3528437b-4877-4314-a4ba-be2c4f9b3601.png)
 
 
 Tablet View
-![localhost_3000_sports(iPad Air)](https://user-images.githubusercontent.com/77195565/204822880-c24e8a11-766d-4b4b-ae38-a059b899c45d.png)
+
+
+![Screenshot (65)](https://user-images.githubusercontent.com/77195565/215499943-fe1b479f-5521-4e2c-9ddd-d2b63bce7a97.png)
+
+
+
+
+
+
